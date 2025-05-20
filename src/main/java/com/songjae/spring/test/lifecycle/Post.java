@@ -1,11 +1,11 @@
 package com.songjae.spring.test.lifecycle;
 
-public class PostController {
+public class Post {
 	private String title;
 	private String user;
 	private String content;
 	
-	public PostController(String title, String user, String content) {
+	public Post(String title, String user, String content) {
 		this.title = title;
 		this.user = user;
 		this.content = content;
