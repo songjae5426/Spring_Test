@@ -15,9 +15,11 @@ public class StoreController {
 	@Autowired
 	private StoreService storeService;
 	
+	// 가게 정보를 모두 reqsponse에 담는다
+	@RequestMapping("db/store/list")
 	@ResponseBody
-	@RequestMapping("/db/test01")
-	public List<Store> selectStore() {
-		return storeService.getStore();
+	public List<Store> storeList() {
+		// 가게 정보 목록 얻어 오기
+		return storeService.getStoreList();
 	}
 }
