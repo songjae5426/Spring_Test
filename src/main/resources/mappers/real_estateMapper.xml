@@ -29,12 +29,14 @@
  			, `createdAt`
  			, `updatedAt`
  		FROM `real_estate`
+ 		<!-- 비교연산자 <나 > 는 xml태그로 인식 할수 있기 때문에 <![CDATA 쿼리 ]]>로 감싼다 -->
  		<![CDATA[
  		WHERE `rentPrice` < #{rent}
  		]]>
  	</select>
  	
- 	<select id="selectReal_estateRentComplexConditions" resultType="com.songjae.spring.test.mybatis.domain.Real_estate" parameterType="Map">
+ 	<!-- 두개 이상의 파라미터(인자)를 받을때는 Map이나 dto를 사용한다 -->
+ 	<select id="selectReal_estateRentComplexConditions" resultType="map">
  		SELECT
  			  `id`
  			, `realtorId`
@@ -50,4 +52,53 @@
  		WHERE `area` >= #{area} AND `price` <= #{price}
  		]]>
  	</select>
+ 	
+ 	<insert id="insertReal_estateObject"  parameterType="com.songjae.spring.test.mybatis.domain.Real_estate">
+ 		INSERT INTO
+ 		`real_estate`
+ 		(  	
+ 			  `realtorId`
+ 			, `address`
+ 			, `area`
+ 			, `type`
+ 			, `price`)
+ 		VALUE
+ 		(
+ 			 #{realtorId}
+ 			,#{address}
+ 			,#{area}
+ 			,#{type}
+ 			,#{price}
+ 		) 
+ 	</insert>
+ 	
+ 	<insert id="insertReal_estateParameter"  parameterType="map">
+ 		INSERT INTO
+ 		`real_estate`
+ 		(  	
+ 			  `realtorId`
+ 			, `address`
+ 			, `area`
+ 			, `type`
+ 			, `price`)
+ 		VALUE
+ 		(
+ 			 #{realtorId}
+ 			,#{address}
+ 			,#{area}
+ 			,#{type}
+ 			,#{price}
+ 		)
+ 	</insert>
+ 	
+ 	<update id="updateReal_estate" parameterType="com.songjae.spring.test.mybatis.domain.Real_estate">
+ 		UPDATE `real_estate`
+		SET `type` = '${type}', `price` = ${price} 
+		WHERE `id` = 22 
+ 	</update>
+ 	
+ 	<delete id="deleteReal_estate" parameterType="int">
+ 		DELETE FROM `real_estate`
+ 		WHERE `id` = #{id}
+ 	</delete>
  </mapper>
