@@ -1,24 +1,19 @@
 package com.songjae.spring.test.mybatis.service;
 
-import java.util.List;import javax.print.DocFlavor.READER;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.songjae.spring.test.database.service.StoreService;
 import com.songjae.spring.test.mybatis.domain.Real_estate;
 import com.songjae.spring.test.mybatis.repository.Real_estateRepository;
 
 @Service
 public class Real_estateService {
 
-    private final StoreService storeService;
-	
+	// Repository 객체를 @Autowired로 스프링이 알아서 주입해주고있다
 	@Autowired
 	private Real_estateRepository real_estateRepository;
 
-    Real_estateService(StoreService storeService) {
-        this.storeService = storeService;
-    }
 	
 	// id에 따른 값 가져오기
 	public Real_estate getReal_estate(int id) {

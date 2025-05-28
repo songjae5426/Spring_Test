@@ -15,14 +15,10 @@ import com.songjae.spring.test.mybatis.service.Real_estateService;
 @RequestMapping("/mybatis")
 public class Real_estateController {
 
-    private final SpringTestApplication springTestApplication;
-
+	// Service의 객체를 @Autowired를 통해서 스프링이 알아서 주입해주고 있다
 	@Autowired
 	private Real_estateService real_estateService;
 
-    Real_estateController(SpringTestApplication springTestApplication) {
-        this.springTestApplication = springTestApplication;
-    }
 	
 	// id로 select해서 json으로 출력하기
 	@RequestMapping("/test01/1")
@@ -60,6 +56,8 @@ public class Real_estateController {
 	
 	@RequestMapping("/test02/2")
 	@ResponseBody
+	// 파라미터 이름이랑 파라미터를 담느느 변수명이랑 달라도 된다
+	// * 인자는 이름으로 구별하는게 아니라 순서로 구별한다 *
 	public String real_estateParameter(@RequestParam("realtorId") int realtorId) {
 		int count = real_estateService.setReal_estateParameter(realtorId, 
 				"썅떼빌리버 오피스텔 814호", 45, "월세", 100000, 120);
@@ -69,11 +67,13 @@ public class Real_estateController {
 	
 	@RequestMapping("/test03/1")
 	@ResponseBody
-	public String real_estateUpdate() {
+	public String real_estateUpdate(@RequestParam("id") int id, 
+			@RequestParam("type") String type, 
+			@RequestParam("price") int price) {
 		Real_estate real_estate = new Real_estate();
-		real_estate.setId(22);
-		real_estate.setType("전세");
-		real_estate.setPrice(7000);
+		real_estate.setId(id);
+		real_estate.setType(type);
+		real_estate.setPrice(price);
 		return "수정 성공 : " + real_estateService.updateReal_estate(real_estate);
 	}
 	

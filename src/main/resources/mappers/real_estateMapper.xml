@@ -53,6 +53,7 @@
  		]]>
  	</select>
  	
+ 	<!-- insert, update, delete는 int를 반환하는 걸로 고정되어 있기 때문에 resultType을 써주지 않아도된다 써주면 오히려 에러가 날수있음 -->
  	<insert id="insertReal_estateObject"  parameterType="com.songjae.spring.test.mybatis.domain.Real_estate">
  		INSERT INTO
  		`real_estate`
@@ -91,10 +92,11 @@
  		)
  	</insert>
  	
+ 	<!-- * ${type}은 문자열이기 때문에 ''로 감싸줘야 한다 * -->
  	<update id="updateReal_estate" parameterType="com.songjae.spring.test.mybatis.domain.Real_estate">
  		UPDATE `real_estate`
-		SET `type` = '${type}', `price` = ${price} 
-		WHERE `id` = 22 
+		SET `type` = '${type}', `price` = ${price}, `updatedAt` = now()
+		WHERE `id` = ${id} 
  	</update>
  	
  	<delete id="deleteReal_estate" parameterType="int">

@@ -22,6 +22,7 @@ public interface Real_estateRepository {
 	
 	public int insertReal_estateObject(Real_estate real_estate);
 	
+	// xml에서 쓸 이름과 서비스로 부터 인자가 담겨지는 매개변수명이 같을 필요는 없다
 	public int insertReal_estateParameter(@Param("realtorId") int realtorId, 
 			@Param("address") String address,
 			@Param("area") int area,
