@@ -1,5 +1,6 @@
 package com.songjae.spring.test.thymeleaf.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,5 +36,22 @@ public class WeatherHistoryService {
 //			
 //		}
 		return weatherHistoryList;
+	}
+	
+	
+	// 정보를 입력 받아 저장
+	public int addWeatherHistory(
+			LocalDate date	// 2025-05-30
+			, String weather
+			, String microDust
+			, double temperatures
+			, double percipitation
+			, double windSpeed) {
+		return weatherHistoryRepository.insertWeather(date, weather, microDust, temperatures, percipitation, windSpeed);
+	}
+	
+	public int addWeatherHistoryByObject(WeatherHistory weather) {
+		return weatherHistoryRepository.insertWeatherByObject(weather);	
+	
 	}
 }

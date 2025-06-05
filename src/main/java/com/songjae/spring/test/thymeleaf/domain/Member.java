@@ -1,4 +1,4 @@
-package com.songjae.spring.test.thymeleaf;
+package com.songjae.spring.test.thymeleaf.domain;
 
 import java.time.LocalDate;
 

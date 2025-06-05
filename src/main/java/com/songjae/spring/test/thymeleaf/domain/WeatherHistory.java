@@ -1,10 +1,13 @@
 package com.songjae.spring.test.thymeleaf.domain;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class WeatherHistory {
 	private int id;
-	private LocalDateTime date;
+	@DateTimeFormat(pattern = "yyyy년 M월 d일") private LocalDate date;
 	private String weather;
 	private double temperatures;
 	private double percipitation;
@@ -18,10 +21,10 @@ public class WeatherHistory {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public LocalDateTime getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
-	public void setDate(LocalDateTime date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 	public String getWeather() {

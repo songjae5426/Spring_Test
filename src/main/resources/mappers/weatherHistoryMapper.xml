@@ -6,4 +6,49 @@
  	<select id="selectWeatherHistory" resultType="com.songjae.spring.test.thymeleaf.domain.WeatherHistory">
  		SELECT * FROM `weatherhistory`;
  	</select>
+ 	
+ 	<insert id="insertWeather" parameterType="map">
+ 		INSERT INTO
+ 			`weatherhistory`
+ 		(
+ 			`date`
+ 			, `weather`
+ 			, `temperatures`
+ 			, `percipitation`
+ 			, `microDust`
+ 			, `windSpeed`
+ 		)
+ 		VALUE
+ 		(
+ 			#{date}
+ 			, #{weather}
+ 			, #{temperatures}
+ 			, #{percipitation}
+ 			, #{microDust}
+ 			, #{windSpeed}
+ 		)
+ 	</insert>
+ 	
+ 	<insert id="insertWeatherByObject" parameterType="com.songjae.spring.test.thymeleaf.domain.WeatherHistory">
+ 		INSERT INTO
+ 			`weatherhistory`
+ 		(
+ 			`date`
+ 			, `weather`
+ 			, `temperatures`
+ 			, `percipitation`
+ 			, `microDust`
+ 			, `windSpeed`
+ 		)
+ 		VALUE
+ 		(
+ 			#{date}
+ 			, #{weather}
+ 			, #{temperatures}
+ 			, #{percipitation}
+ 			, #{microDust}
+ 			, #{windSpeed}
+ 		)
+ 	</insert>
+ 	
  </mapper>
