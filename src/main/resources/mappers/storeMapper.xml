@@ -4,7 +4,7 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace="com.songjae.spring.test.database.repository.StoreRepository">
- 	<select id="selectStore" resultType="com.songjae.spring.test.database.domain.Store">
+ 	<select id="selectStoreList" resultType="com.songjae.spring.test.database.domain.Store">
  		SELECT `id`
  			, `name`
  			, `phoneNumber`
@@ -13,7 +13,7 @@
  			, `introduce`
  			, `createdAt`
  			, `updatedAt`
-		FROM `store`;
+		FROM `store`
  	</select>
  
  </mapper>

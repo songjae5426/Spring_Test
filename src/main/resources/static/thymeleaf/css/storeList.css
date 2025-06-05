@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.wrap{
+	width: 500px;
+	margin: 0 auto;
+}
+.bg-gray{
+	background-color: gray;
+}
