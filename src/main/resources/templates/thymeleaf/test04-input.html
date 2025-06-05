@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>날씨정보 입력 페이지</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+	integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+	crossorigin="anonymous">
+<link rel="styleshet" href="/thymeleaf/style.css">
+</head>
+<body>
+	<div class="vh-100">
+		<div>
+		
+		</div>
+		<div class="d-flex height">
+			<header class="col-2 bg-info text-center">
+				<div class="mb-3">
+					<img alt="제목" src="/thymeleaf/img/title.png" width="100px"
+						height="50px">
+				</div>
+				<nav>
+					<ul
+						class="nav d-flex flex-column align-items-start font-weight-bolder">
+						<li class="nav-item"><a href="#"
+							class="nav-link text-white px-0">날씨</a></li>
+						<li class="nav-item"><a href="#"
+							class="nav-link text-white px-0">날씨입력</a></li>
+						<li class="nav-item"><a href="#"
+							class="nav-link text-white px-0">테마날씨</a></li>
+						<li class="nav-item"><a href="#"
+							class="nav-link text-white px-0">관측 기후</a></li>
+					</ul>
+				</nav>
+			</header>
+			<section class="col-10">
+				<article class="p-3">
+					<div>
+						<div class="h2">날씨 입력</div>
+					</div>
+					<form >
+						<div>
+							<div class="d-flex">
+								<div class="d-flex align-items-end col-5">
+									<label class="mr-2">날짜</label> <input type="text"
+										class="form-control col-4">
+								</div>
+		
+								<div class="d-flex align-items-end col-4">
+									<label class="mr-2">날씨</label> <select class="form-control col-4">
+										<option>맑음</option>
+										<option>구름조금</option>
+										<option>흐림</option>
+										<option>비</option>
+									</select>
+								</div>
+		
+								<div class="d-flex align-items-end col-3">
+									<label class="mr-2">미세먼지</label> <select
+										class="form-control col-4">
+										<option>좋음</option>
+										<option>보통</option>
+										<option>나쁨</option>
+										<option>최악</option>
+									</select>
+								</div>
+		
+							</div>
+							<div class="d-flex justify-content-between mt-4">
+								<div class="d-flex align-items-center col-4">
+									<label class="col-3">기온</label>
+									<div class="input-group mb-3">
+										<input type="text" class="form-control">
+										<div class="input-group-append">
+											<span class="input-group-text">°C</span>
+										</div>
+									</div>
+								</div>
+								<div class="d-flex align-items-center col-4">
+									<label class="col-3">강수량</label>
+									<div class="input-group mb-3">
+										<input type="text" class="form-control">
+										<div class="input-group-append">
+											<span class="input-group-text">mm</span>
+										</div>
+									</div>
+								</div>
+								<div class="d-flex align-items-center col-4">
+									<label class="col-3">풍속</label>
+									<div class="input-group mb-3">
+										<input type="text" class="form-control">
+										<div class="input-group-append">
+											<span class="input-group-text">km/h</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</article>
+			</section>
+		</div>
+		<footer class="d-flex py-3">
+			<div class="col-2 d-flex justify-content-center">
+				<img alt="제목" src="/thymeleaf/img/title.png" width="100px"
+					height="50px">
+			</div>
+			<div class="small text-secondary col-10">
+				<div>(07062) 서울시 동작구 여의대방로16길 61</div>
+				<div>Copyright@2020 KMA. ALL Rights RESERVED</div>
+			</div>
+		</footer>
+	</div>
+	
+</body>
+</html>

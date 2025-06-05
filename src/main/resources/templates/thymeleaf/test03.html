@@ -30,10 +30,15 @@
 				
 				<td th:text="${#strings.replace(member.nationality, '삼국시대', '삼국 - ')}">삼국 - 촉한</td>
 				<td th:utext="|<b>${#strings.arraySplit(member.email, '@')[0]}</b>@${#strings.arraySplit(member.email, '@')[1]}|">youbee@gmail.com</td>				
+				
+				<td th:text="|${#strings.abbreviate(member.introduce, 18)}...|">저는 촉의 군주 유비입니다...</span>
+				
+				<!--  
 				<td>
 					<span th:if="${#strings.length(member.introduce) >= 15}" th:text="|${#strings.substring(member.introduce, 0, 15)}...|">저는 촉의 군주 유비입니다...</span>
 					<span th:unless="${#strings.length(member.introduce) >= 15}" th:text="${member.introduce}">저는 촉의 군주 유비입니다</span>
 				</td>
+				-->
 				
 				
 			</tr>

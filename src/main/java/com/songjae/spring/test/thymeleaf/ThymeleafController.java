@@ -6,23 +6,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.songjae.spring.test.database.service.StoreService;
+import com.songjae.spring.test.thymeleaf.service.WeatherHistoryService;
 
 @Controller
 @RequestMapping("/thymeleaf")
 public class ThymeleafController {
 
-    private final StoreService storeService;
+	@Autowired
+	private WeatherHistoryService weatherHistoryService;
 
-    ThymeleafController(StoreService storeService) {
-        this.storeService = storeService;
-    }
-	
 	@GetMapping("/test01")
 	public String test01() {
 		return "thymeleaf/test01";
@@ -141,6 +140,21 @@ public class ThymeleafController {
 		
 		return "thymeleaf/test03.html";
 	}
+	
+	
+	// 날씨
+	@GetMapping("/test04")
+	public String test04(Model model) {
+		model.addAttribute("wearherHistoryList", weatherHistoryService.getWeatherHistory());
+		return "thymeleaf/test04.html";
+	}
+	
+	// 날씨 정보 입력 페이지
+	@GetMapping("/test04/input")
+	public String test04Input() {
+		return "thymeleaf/test04-input.html";
+	}
+	
 	
 	
 }
